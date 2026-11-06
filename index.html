@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawCare | Veterinary Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-icon">✚</span><div><b>PawCare</b><small>VETERINARY CLINIC</small></div></div>
+    <div class="side-label">WORKSPACE</div>
+    <button class="nav-item active" data-section="dashboard"><span>▦</span> Dashboard</button>
+    <button class="nav-item" data-section="owners"><span>♙</span> Pet Owners</button>
+    <button class="nav-item" data-section="pets"><span>♧</span> Pets</button>
+    <button class="nav-item" data-section="appointments"><span>▣</span> Appointments</button>
+    <button class="nav-item" data-section="records"><span>♡</span> Medical Records</button>
+    <div class="sidebar-bottom"><div class="help-card"><span>🐾</span><b>Care starts here</b><p>Keep every pet healthy, happy and cared for.</p></div><small>PAWCARE MANAGEMENT · v1.0</small></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar"><div><span class="eyebrow">VETERINARY MANAGEMENT</span><h1 id="pageTitle">Dashboard</h1></div><div class="top-right"><span class="today" id="today"></span><div class="avatar">PC</div></div></header>
+    <section id="dashboard" class="page active">
+      <div class="welcome"><div><span class="eyebrow light">YOUR CLINIC OVERVIEW</span><h2>Good care. Happy paws. <span>🐾</span></h2><p>Manage your clinic's daily activity in one simple place.</p></div><div class="welcome-art">🐕</div></div>
+      <div class="stats">
+        <article class="stat-card"><div class="stat-top"><span>Registered owners</span><span class="stat-icon mint">♙</span></div><strong id="countOwners">—</strong><small>Pet owner profiles</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Pets registered</span><span class="stat-icon peach">🐾</span></div><strong id="countPets">—</strong><small>In your care</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Appointments</span><span class="stat-icon blue">▣</span></div><strong id="countAppointments">—</strong><small>All appointments</small></article>
+        <article class="stat-card"><div class="stat-top"><span>Medical records</span><span class="stat-icon lilac">♡</span></div><strong id="countRecords">—</strong><small>Visit history entries</small></article>
+      </div>
+      <div class="dashboard-bottom"><div class="panel intro-panel"><span class="eyebrow">GET STARTED</span><h3>Everything your clinic needs</h3><p>Store owner contact details, keep pet profiles up to date, schedule veterinary visits and maintain each pet's medical history.</p><div class="quick-actions"><button onclick="showSection('owners')">＋ Add an owner</button><button onclick="showSection('pets')">＋ Register a pet</button><button onclick="showSection('appointments')">＋ Book appointment</button></div></div><div class="panel flow-panel"><span class="eyebrow">HOW IT WORKS</span><div class="flow"><i>1</i><div><b>Register an owner</b><small>Save contact information.</small></div></div><div class="flow"><i>2</i><div><b>Add their pet</b><small>Connect each pet to its owner.</small></div></div><div class="flow"><i>3</i><div><b>Manage care</b><small>Appointments and medical history.</small></div></div></div></div>
+    </section>
+
+    <section id="owners" class="page">
+      <div class="section-heading"><div><h2>Pet Owners</h2><p>Manage owner contact information and addresses.</p></div><button class="primary-btn" onclick="openForm('owners')">＋ Add owner</button></div>
+      <div class="panel table-panel"><div class="table-tools"><input id="search-owners" class="search" placeholder="⌕  Search owners..." oninput="filterTable('owners')"><span id="total-owners" class="result-count"></span></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>OWNER NAME</th><th>EMAIL</th><th>PHONE</th><th>ADDRESS</th><th>ACTIONS</th></tr></thead><tbody id="body-owners"></tbody></table></div></div>
+    </section>
+    <section id="pets" class="page">
+      <div class="section-heading"><div><h2>Pets</h2><p>Register pets and connect them with their owners.</p></div><button class="primary-btn" onclick="openForm('pets')">＋ Register pet</button></div>
+      <div class="panel table-panel"><div class="table-tools"><input id="search-pets" class="search" placeholder="⌕  Search pets..." oninput="filterTable('pets')"><span id="total-pets" class="result-count"></span></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>PET NAME</th><th>OWNER ID</th><th>SPECIES</th><th>BREED</th><th>AGE</th><th>ACTIONS</th></tr></thead><tbody id="body-pets"></tbody></table></div></div>
+    </section>
+    <section id="appointments" class="page">
+      <div class="section-heading"><div><h2>Appointments</h2><p>Schedule veterinary visits and update appointment status.</p></div><button class="primary-btn" onclick="openForm('appointments')">＋ New appointment</button></div>
+      <div class="panel table-panel"><div class="table-tools"><input id="search-appointments" class="search" placeholder="⌕  Search appointments..." oninput="filterTable('appointments')"><span id="total-appointments" class="result-count"></span></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>PET ID</th><th>DOCTOR</th><th>DATE</th><th>REASON</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="body-appointments"></tbody></table></div></div>
+    </section>
+    <section id="records" class="page">
+      <div class="section-heading"><div><h2>Medical Records</h2><p>Maintain diagnosis, treatment and visit notes for every pet.</p></div><button class="primary-btn" onclick="openForm('records')">＋ Add medical record</button></div>
+      <div class="panel table-panel"><div class="table-tools"><input id="search-records" class="search" placeholder="⌕  Search medical records..." oninput="filterTable('records')"><span id="total-records" class="result-count"></span></div><div class="table-wrap"><table><thead><tr><th>ID</th><th>PET ID</th><th>VISIT DATE</th><th>DIAGNOSIS</th><th>TREATMENT</th><th>NOTES</th><th>ACTIONS</th></tr></thead><tbody id="body-records"></tbody></table></div></div>
+    </section>
+    <footer>© 2026 PawCare Veterinary Management System <span>Made with care for every paw 🐾</span></footer>
+  </main>
+  <div class="modal-backdrop" id="modal"><div class="modal"><div class="modal-head"><div><span class="eyebrow">PAWCARE DATABASE</span><h3 id="modalTitle">Add record</h3></div><button class="close" onclick="closeForm()">×</button></div><form id="dataForm"><div id="formFields" class="form-grid"></div><div class="form-actions"><button type="button" class="secondary-btn" onclick="closeForm()">Cancel</button><button class="primary-btn" type="submit">Save record</button></div></form></div></div>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

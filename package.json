@@ -1,0 +1,12 @@
+{
+  "name": "pet-care-veterinary-management-system",
+  "version": "1.0.0",
+  "description": "Pet Care / Veterinary Management System with CRUD operations using Node.js, Express and MySQL",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "mysql2": "^3.11.5"
+  }
+}
